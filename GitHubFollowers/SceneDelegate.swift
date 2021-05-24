@@ -13,10 +13,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        guard let windowsScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(frame: windowsScene.coordinateSpace.bounds)
+        window?.windowScene = windowsScene
+        window?.rootViewController = createRootViewController()
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -49,7 +52,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
+}
 
-
+extension SceneDelegate{
+    
+    func createRootViewController() -> UIViewController{
+        let nav = UITabBarController() //Контроллер TabBar
+        let first = UINavigationController(rootViewController: MainViewController()) // TabBarController Children
+        let second = UINavigationController(rootViewController: FavoritesViewController())// TabBarController Children
+        
+        first.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
+        second.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star.fill"), tag: 1)
+        
+        nav.viewControllers = [first,second] // Add children
+        
+        nav.tabBar.tintColor = .systemYellow //TODO: Когданибудь поменять это
+        
+        return nav
+    }
 }
 
