@@ -45,7 +45,11 @@ class CoreDataHelper{
         
         return result
     }
+}
+
+class CurrentUserHelper{
     
-    
-    
+    static func getCurrentUser(){
+        
+    }
 }

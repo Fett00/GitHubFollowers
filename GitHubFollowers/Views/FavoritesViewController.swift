@@ -12,15 +12,16 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Настройка вью
+        configurateViewController()
     }
     
 
     func configurateViewController(){
         view.backgroundColor = .systemBackground //Установка цвета задника
+        self.title = "Favorites"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         self.hideKeyboardWhenTappedAround() // Прятать клавиатуру при нажатии на экран
-        
     }
-
 }

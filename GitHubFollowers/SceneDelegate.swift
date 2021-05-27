@@ -58,11 +58,11 @@ extension SceneDelegate{
     
     func createRootViewController() -> UIViewController{
         let nav = UITabBarController() //Контроллер TabBar
-        let first = UINavigationController(rootViewController: MainViewController()) // TabBarController Children
+        let first = UINavigationController(rootViewController: SearchViewController()) // TabBarController Children
         let second = UINavigationController(rootViewController: FavoritesViewController())// TabBarController Children
         
-        first.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
-        second.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star.fill"), tag: 1)
+        first.tabBarItem = UITabBarItem(title: "Search", image: SFSymbols.search, tag: 0)
+        second.tabBarItem = UITabBarItem(title: "Favorite", image: SFSymbols.following, tag: 1)
         
         nav.viewControllers = [first,second] // Add children
         

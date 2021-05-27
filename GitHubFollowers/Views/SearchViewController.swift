@@ -8,7 +8,7 @@
 import UIKit
 
 //Класс для главного окна
-class MainViewController: UIViewController {
+class SearchViewController: UIViewController {
     
     //Избражение гитхаб лого
     let logoImageView = UIImageView()
@@ -37,14 +37,13 @@ class MainViewController: UIViewController {
         view.backgroundColor = .systemBackground //Установка цвета задника
         
         self.hideKeyboardWhenTappedAround() // Прятать клавиатуру при нажатии на экран
-        
     }
     
     func configurateLogo() {
         
         view.addSubview(logoImageView)//Добавление картинки на вью
         
-        logoImageView.image = UIImage(named: "gh-logo") //Установка картинки
+        logoImageView.image = Images.ghLogo //Установка картинки
         logoImageView.contentMode = .scaleAspectFit //Установка границ изображения
         
         //Создание констрейнтов
@@ -95,6 +94,7 @@ class MainViewController: UIViewController {
         
         searchButton.setTitle("Tap me!", for: .normal)//Установка текста на кнопку
         searchButton.backgroundColor = .cyan //UIColor.init(named: "buttonColors1")
+        searchButton.addTarget(self, action: #selector(changeTabBarItem), for: .touchDown)
         
         //Создание констрейнтов
         NSLayoutConstraint.activate([
@@ -107,5 +107,11 @@ class MainViewController: UIViewController {
         
         //Отключение перевода AResMask
         searchButton.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    //Нажатие на кнопку
+    @objc func changeTabBarItem(){
+        
+        self.navigationController?.pushViewController(FollowersViewController(), animated: true)
     }
 }
