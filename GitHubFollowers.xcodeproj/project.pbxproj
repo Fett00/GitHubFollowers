@@ -103,8 +103,8 @@
 				5A22A9D0265BE920003D0372 /* Views */,
 				5A9B11FF265AC05B0024FB3B /* Assets.xcassets */,
 				5A9B1201265AC05B0024FB3B /* LaunchScreen.storyboard */,
-				5A9B1204265AC05B0024FB3B /* Info.plist */,
 				5A9B11FC265AC05A0024FB3B /* GitHubFollowers.xcdatamodeld */,
+				5A9B1204265AC05B0024FB3B /* Info.plist */,
 			);
 			path = GitHubFollowers;
 			sourceTree = "<group>";

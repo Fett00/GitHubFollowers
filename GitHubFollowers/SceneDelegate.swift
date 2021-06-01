@@ -57,18 +57,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate{
     
     func createRootViewController() -> UIViewController{
-        let nav = UITabBarController() //Контроллер TabBar
+        let tab = UITabBarController() //Контроллер TabBar
         let first = UINavigationController(rootViewController: SearchViewController()) // TabBarController Children
         let second = UINavigationController(rootViewController: FavoritesViewController())// TabBarController Children
         
         first.tabBarItem = UITabBarItem(title: "Search", image: SFSymbols.search, tag: 0)
-        second.tabBarItem = UITabBarItem(title: "Favorite", image: SFSymbols.following, tag: 1)
+        second.tabBarItem = UITabBarItem(title: "Favorite", image: SFSymbols.star, tag: 1)
         
-        nav.viewControllers = [first,second] // Add children
+        tab.viewControllers = [first,second] // Add children
         
-        nav.tabBar.tintColor = .systemYellow //TODO: Когданибудь поменять это
+        //tab.tabBar.tintColor = .systemYellow //TODO: Когданибудь поменять это
         
-        return nav
+        return tab
     }
 }
 

@@ -12,6 +12,12 @@ class CoreDataHelper{
     
     //Создание контекста для работы с CoreData
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //Куда записывать(Entity)
+    let managedObject:NSManagedObject
+    
+    init(withManagedObject:NSManagedObject) {
+        managedObject = withManagedObject
+    }
     
     //Сохранение Данных в БД
     private func save(){
