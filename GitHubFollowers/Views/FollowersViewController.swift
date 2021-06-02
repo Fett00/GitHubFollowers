@@ -9,6 +9,8 @@ import UIKit
 
 //Тут отображется список фоловеров
 class FollowersViewController: UIViewController {
+    
+    var followersCollectionView = UICollectionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -19,6 +19,7 @@
 		5A9B1203265AC05B0024FB3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A9B1201265AC05B0024FB3B /* LaunchScreen.storyboard */; };
 		5A9B120B265AC48F0024FB3B /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9B120A265AC48F0024FB3B /* DataHelper.swift */; };
 		5A9B120D265AD46D0024FB3B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9B120C265AD46D0024FB3B /* SearchViewController.swift */; };
+		5AB6D97C2667A5AB00BC8C20 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB6D97B2667A5AB00BC8C20 /* FavoritesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		5A9B1204265AC05B0024FB3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A9B120A265AC48F0024FB3B /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		5A9B120C265AD46D0024FB3B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		5AB6D97B2667A5AB00BC8C20 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		5AB6D97D2667A86F00BC8C20 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,7 @@
 		5A9B11E7265AC05A0024FB3B = {
 			isa = PBXGroup;
 			children = (
+				5AB6D97D2667A86F00BC8C20 /* README.md */,
 				5A9B11F2265AC05A0024FB3B /* GitHubFollowers */,
 				5A9B11F1265AC05A0024FB3B /* Products */,
 			);
@@ -100,6 +104,7 @@
 				5A0BADBD265FF87E0082A870 /* Enums.swift */,
 				5A22A9D8265BFC0F003D0372 /* Helpers */,
 				5A22A9D5265BF683003D0372 /* Extensions */,
+				5AB6D97A2667A57700BC8C20 /* CustomViews */,
 				5A22A9D0265BE920003D0372 /* Views */,
 				5A9B11FF265AC05B0024FB3B /* Assets.xcassets */,
 				5A9B1201265AC05B0024FB3B /* LaunchScreen.storyboard */,
@@ -107,6 +112,14 @@
 				5A9B1204265AC05B0024FB3B /* Info.plist */,
 			);
 			path = GitHubFollowers;
+			sourceTree = "<group>";
+		};
+		5AB6D97A2667A57700BC8C20 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				5AB6D97B2667A5AB00BC8C20 /* FavoritesTableViewCell.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AB6D97C2667A5AB00BC8C20 /* FavoritesTableViewCell.swift in Sources */,
 				5A9B120B265AC48F0024FB3B /* DataHelper.swift in Sources */,
 				5A22A9DA265BFD52003D0372 /* FavoritesViewController.swift in Sources */,
 				5A0BADBE265FF87E0082A870 /* Enums.swift in Sources */,

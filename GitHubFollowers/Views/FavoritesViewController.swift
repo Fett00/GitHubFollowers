@@ -37,9 +37,9 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
         
         view.addSubview(favoritesUsersTableView)//добавление таблицы на вью
         
-        favoritesUsersTableView.register(UITableViewCell.self, forCellReuseIdentifier: "FUCell")
-        favoritesUsersTableView.delegate = self
-        favoritesUsersTableView.dataSource = self
+        favoritesUsersTableView.register(UITableViewCell.self, forCellReuseIdentifier: "FUCell")//регистрация ячейки
+        favoritesUsersTableView.delegate = self //назначение делегата
+        favoritesUsersTableView.dataSource = self // назначение источника данных
         
         favoritesUsersTableView.tableFooterView = UIView() // Установка футера
         
