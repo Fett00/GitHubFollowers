@@ -60,7 +60,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FUCell")!
-        cell.textLabel?.text = String(indexPath.row)
+        cell.textLabel?.text = "Fett00"
         
         return cell
     }

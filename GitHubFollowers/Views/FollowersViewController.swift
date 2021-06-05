@@ -47,14 +47,15 @@ class FollowersViewController: UIViewController {
         
         //Настройка отображения CollectionView
         let width =  view.bounds.width
-        let padding: CGFloat = 12
+        let padding: CGFloat = 10
         let minimumItemSpacing: CGFloat = 10
         let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
         let itemWidth = availableWidth / 3
+        let nameHigth:CGFloat = 20
         
         let lo = UICollectionViewFlowLayout()
         lo.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        lo.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        lo.itemSize = CGSize(width: itemWidth, height: itemWidth + nameHigth)
         //
         
         followersCollectionView = UICollectionView(frame: .zero, collectionViewLayout: lo)
@@ -87,7 +88,7 @@ extension FollowersViewController: UICollectionViewDelegateFlowLayout, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowersCollectionViewCell.cellID, for: indexPath) as! FollowersCollectionViewCell
-        cell.set(avatarImage: nil, name: "Садык Мусаев")
+        cell.set(avatarImage: nil, name: "Fett00")
         
         return cell
     }

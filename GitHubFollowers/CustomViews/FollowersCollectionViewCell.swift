@@ -36,25 +36,32 @@ class FollowersCollectionViewCell: UICollectionViewCell {
         addSubview(avatarImageView)
         addSubview(nameLable)
         
+        //Настройка аватарки
+        avatarImageView.layer.cornerRadius = 10 // Велечина закругления картинки
+        avatarImageView.layer.cornerCurve = .continuous // Закругление в виде суперэлипса
+        avatarImageView.contentMode = .scaleAspectFill // подогнать картинку под размеры imageView
+        avatarImageView.clipsToBounds = true// Ограничивает внутреннию иерархию границами этого элемента
+        //
+        
+        //Настройка имени
         nameLable.textAlignment = .center
+        nameLable.font = UIFont.boldSystemFont(ofSize: nameLable.font.pointSize)
+        //
         
         NSLayoutConstraint.activate([
             
             avatarImageView.topAnchor.constraint(equalTo: self.topAnchor,constant: 5),
-            //avatarImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: -5),
             avatarImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -5),
             avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 5),
+            avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
             
-            nameLable.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor,constant: 5),
-            nameLable.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: -5),
+            nameLable.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor,constant: 10),
             nameLable.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -5),
-            nameLable.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 5)
+            nameLable.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 5),
+            nameLable.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            nameLable.heightAnchor.constraint(equalToConstant: 20)
         ])
-        
-        avatarImageView.contentMode = .scaleAspectFit
-        avatarImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-        //avatarImageView.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        
+
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         nameLable.translatesAutoresizingMaskIntoConstraints = false
     }

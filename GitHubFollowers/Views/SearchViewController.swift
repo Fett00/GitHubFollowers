@@ -94,7 +94,7 @@ class SearchViewController: UIViewController {
         
         searchButton.setTitle("Tap me!", for: .normal)//Установка текста на кнопку
         searchButton.backgroundColor = .cyan //UIColor.init(named: "buttonColors1")
-        searchButton.addTarget(self, action: #selector(changeTabBarItem), for: .touchDown)
+        searchButton.addTarget(self, action: #selector(goToFollowers), for: .touchDown)
         
         //Создание констрейнтов
         NSLayoutConstraint.activate([
@@ -110,7 +110,7 @@ class SearchViewController: UIViewController {
     }
     
     //Нажатие на кнопку
-    @objc func changeTabBarItem(){
+    @objc func goToFollowers(){
         
         self.navigationController?.pushViewController(FollowersViewController(), animated: true)
     }
