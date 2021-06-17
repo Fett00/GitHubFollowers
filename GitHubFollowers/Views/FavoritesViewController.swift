@@ -37,7 +37,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
         
         view.addSubview(favoritesUsersTableView)//добавление таблицы на вью
         
-        favoritesUsersTableView.register(UITableViewCell.self, forCellReuseIdentifier: "FUCell")//регистрация ячейки
+        favoritesUsersTableView.register(FavoritesTableViewCell.self, forCellReuseIdentifier: FavoritesTableViewCell.cellID)//регистрация ячейки
         favoritesUsersTableView.delegate = self //назначение делегата
         favoritesUsersTableView.dataSource = self // назначение источника данных
         
@@ -59,9 +59,21 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FUCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.cellID)!
         cell.textLabel?.text = "Fett00"
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        self.navigationController?.pushViewController(FollowersViewController(withName: cell!.textLabel!.text), animated: true) //Поменять. Доставать данные не из ячейки а из БД. Убрать forc-unwrap
+    }
+    
+    func configurateDeleteAction(){
+        
+        //let deleteAction = UITableView
     }
 }

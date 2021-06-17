@@ -12,10 +12,9 @@ class FollowersViewController: UIViewController {
     
     var followersCollectionView:UICollectionView?
     
-    init(withTitle:String = "UserName") {
-        
+    init(withName name:String?) {
         super.init(nibName: nil, bundle: nil)
-        self.title = withTitle
+        self.title = name ?? "User"
     }
     
     required init?(coder: NSCoder) {
@@ -25,6 +24,8 @@ class FollowersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Подгрузка данных
+        NetworkHelper.shared.getUsers(withProfileName: "Fett00")//Здесь ли его место?
         //Настройка вью
         configurateViewController()
         //Настройка collectionView
@@ -46,12 +47,12 @@ class FollowersViewController: UIViewController {
         
         
         //Настройка отображения CollectionView
-        let width =  view.bounds.width
+        let width =  view.bounds.width // Ширина экрана
         let padding: CGFloat = 10
         let minimumItemSpacing: CGFloat = 10
         let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
         let itemWidth = availableWidth / 3
-        let nameHigth:CGFloat = 20
+        let nameHigth:CGFloat = 37
         
         let lo = UICollectionViewFlowLayout()
         lo.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)

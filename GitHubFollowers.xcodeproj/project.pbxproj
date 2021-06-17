@@ -21,6 +21,9 @@
 		5A9B120D265AD46D0024FB3B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9B120C265AD46D0024FB3B /* SearchViewController.swift */; };
 		5AB6D97C2667A5AB00BC8C20 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB6D97B2667A5AB00BC8C20 /* FavoritesTableViewCell.swift */; };
 		5AB6D97F2667EE5900BC8C20 /* FollowersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB6D97E2667EE5900BC8C20 /* FollowersCollectionViewCell.swift */; };
+		5AF6E76B266C032500246785 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6E76A266C032500246785 /* NetworkHelper.swift */; };
+		5AF6E76F266EAB5300246785 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6E76E266EAB5300246785 /* UserModel.swift */; };
+		5AF6E77226715F9700246785 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6E77126715F9700246785 /* JSONHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		5AB6D97B2667A5AB00BC8C20 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		5AB6D97D2667A86F00BC8C20 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5AB6D97E2667EE5900BC8C20 /* FollowersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCollectionViewCell.swift; sourceTree = "<group>"; };
+		5AF6E76A266C032500246785 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		5AF6E76E266EAB5300246785 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		5AF6E77126715F9700246785 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				5A9B120A265AC48F0024FB3B /* DataHelper.swift */,
+				5AF6E76A266C032500246785 /* NetworkHelper.swift */,
+				5AF6E77126715F9700246785 /* JSONHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -103,6 +111,7 @@
 				5A9B11F3265AC05A0024FB3B /* AppDelegate.swift */,
 				5A9B11F5265AC05A0024FB3B /* SceneDelegate.swift */,
 				5A0BADBD265FF87E0082A870 /* Enums.swift */,
+				5AF6E770266EAC9200246785 /* Models */,
 				5A22A9D8265BFC0F003D0372 /* Helpers */,
 				5A22A9D5265BF683003D0372 /* Extensions */,
 				5AB6D97A2667A57700BC8C20 /* CustomViews */,
@@ -119,10 +128,18 @@
 		5AB6D97A2667A57700BC8C20 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				5AB6D97B2667A5AB00BC8C20 /* FavoritesTableViewCell.swift */,
 				5AB6D97E2667EE5900BC8C20 /* FollowersCollectionViewCell.swift */,
+				5AB6D97B2667A5AB00BC8C20 /* FavoritesTableViewCell.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		5AF6E770266EAC9200246785 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5AF6E76E266EAB5300246785 /* UserModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,13 +211,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AF6E76B266C032500246785 /* NetworkHelper.swift in Sources */,
 				5AB6D97F2667EE5900BC8C20 /* FollowersCollectionViewCell.swift in Sources */,
 				5AB6D97C2667A5AB00BC8C20 /* FavoritesTableViewCell.swift in Sources */,
 				5A9B120B265AC48F0024FB3B /* DataHelper.swift in Sources */,
 				5A22A9DA265BFD52003D0372 /* FavoritesViewController.swift in Sources */,
 				5A0BADBE265FF87E0082A870 /* Enums.swift in Sources */,
+				5AF6E76F266EAB5300246785 /* UserModel.swift in Sources */,
 				5A22A9D2265BEE29003D0372 /* UserInfoViewController.swift in Sources */,
 				5A22A9D7265BF6AC003D0372 /* UIViewControllerExt.swift in Sources */,
+				5AF6E77226715F9700246785 /* JSONHelper.swift in Sources */,
 				5A9B11FE265AC05A0024FB3B /* GitHubFollowers.xcdatamodeld in Sources */,
 				5A22A9DC265FF005003D0372 /* FollowersViewController.swift in Sources */,
 				5A9B120D265AD46D0024FB3B /* SearchViewController.swift in Sources */,

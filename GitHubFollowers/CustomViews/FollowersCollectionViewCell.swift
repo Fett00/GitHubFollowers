@@ -50,16 +50,15 @@ class FollowersCollectionViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             
+            avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor),
             avatarImageView.topAnchor.constraint(equalTo: self.topAnchor,constant: 5),
             avatarImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -5),
             avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 5),
-            avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
             
             nameLable.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor,constant: 10),
             nameLable.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -5),
             nameLable.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 5),
             nameLable.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            nameLable.heightAnchor.constraint(equalToConstant: 20)
         ])
 
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false

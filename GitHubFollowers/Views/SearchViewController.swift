@@ -112,6 +112,15 @@ class SearchViewController: UIViewController {
     //Нажатие на кнопку
     @objc func goToFollowers(){
         
-        self.navigationController?.pushViewController(FollowersViewController(), animated: true)
+        if !userNameTextField.text!.isEmpty{ //Поверка на наличие имени
+            
+            self.navigationController?.pushViewController(FollowersViewController(withName: userNameTextField.text!), animated: true)
+        }
+        else{ //Уведомление если имя пустое
+            
+            let popUp = UIAlertController(title: nil, message: Titles.emptyName, preferredStyle: .alert)
+            popUp.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(popUp, animated: true, completion: nil)
+        }
     }
 }

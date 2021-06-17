@@ -26,3 +26,7 @@ enum Images {
     static let emptyState = UIImage(named: "empty-state-logo")!
 }
 
+enum Titles{
+    
+    static let emptyName = "The text field are empty.💁\n Please try enter name!✎"
+}
