@@ -10,58 +10,78 @@ import UIKit
 
 class NetworkHelper{
     
-    let pageCash:NSCache<NSString,NSData> = {
+    let userCash:NSCache<NSString,NSData> = {
         
         let cash = NSCache<NSString,NSData>()
-        //Настройки кэша
+        //Настройки кэша(добавить)
+        
         //
         return cash
     }()
     
     var users = [UserModel]()
     
-    var pageURL:URL? // url
+    var userURL:URL? // url
     let ghPath = "https://api.github.com/users/" // Путь до API
     
     static let shared = NetworkHelper() // singleton
     private init() {}
     
     
-    func getUsers(withProfileName name:String) -> [UserModel]{
+    func getUser(withProfileName name:String, completionHandler: @escaping (Result<UserModel, NetworkError>) -> () ){
         
-        if let object = pageCash.object(forKey: name as NSString){//Если в кэше пользователь есть
+        var result:UserModel?
+        
+        if let object = userCash.object(forKey: name as NSString){//Если в кэше пользователь есть
             
-            JSONHelper.shared.dataToModel(data: object as Data)
-
+            do {
+                result  = try JSONDecoder().decode(UserModel.self, from: object as Data)
+                completionHandler(Result.success(result!))
+            } catch {
+                completionHandler(Result.failure(.failure))
+            }
         }
         else{//Если в кэше пользователя нет
             
-            pageURL = URL(string: ghPath + name)
+            userURL = URL(string: ghPath + name)
             
-            URLSession.shared.dataTask(with: pageURL!) { [weak self] data, response, error in // ! Ставить нельзя!
+            URLSession.shared.dataTask(with: userURL!) { [weak self] data, response, error in // userURL! Ставить нельзя!
                 
                 guard let strongSelf = self else {return}
-
                 
-                if let error = error{//Проверка на наличие ошибки
-                    
-                    debugPrint(error.localizedDescription) //Вывод ошибки если такая есть
+                if let _ = error { //Проверка на наличие ошибки
+                    completionHandler(Result.failure(.failure))
                 }
-                else{
+                
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { //Проверка на правильный код
+                    completionHandler(Result.failure(.badResponse))
+                    return
+                }
+                
+                guard let data = data else{ //Проверка на наличие приходящих данных
+                    completionHandler(Result.failure(.failure))
+                    return
+                }
+                
+                do {
+                    result  = try JSONDecoder().decode(UserModel.self, from: data)
                     
-                    if strongSelf.pageCash.object(forKey: name as NSString) == nil{ //Добавление пользователя в кэш
+                    if strongSelf.userCash.object(forKey: name as NSString) == nil{ //Добавление пользователя в кэш если норм декодировалось
                         
-                        strongSelf.pageCash.setObject(data! as NSData, forKey: name as NSString)
+                        strongSelf.userCash.setObject(data as NSData, forKey: name as NSString)
                     }
                     
-                    JSONHelper.shared.dataToModel(data: data!)
+                    completionHandler(Result.success(result!))
+                }
+                catch {
+                    completionHandler(Result.failure(.failure))
                 }
             }.resume()
-            
-            
         }
+    }
+    
+    func getImage(fromURL:URL){//Добавить кэширование
         
-        return users
     }
 }
 

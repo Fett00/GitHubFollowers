@@ -7,20 +7,39 @@
 
 import Foundation
 
-struct UserModel {
+
+struct UserModel: Codable {
+
     let login: String
     let id: Int
-    let avatar_url: String
+    let avatarUrl: String
     let url: String
-    let followers_url: String
-    let organizations_url: String
-    let name: String
-    let company: String
-    let location: String
-    let bio: String
-    let public_repos: Int
+    let followersUrl: String
+    let name: String?
+    let company: String?
+    let location: String?
+    let bio: String?
+    let publicRepos: Int
+    let publicGists: Int
     let followers: Int
     let following: Int
-    let created_at: Date
+    let created: String
+    
+    enum CodingKeys: String, CodingKey {
+        case login
+        case id
+        case avatarUrl = "avatar_url"
+        case url
+        case followersUrl = "followers_url"
+        case name
+        case company
+        case location
+        case bio
+        case publicRepos = "public_repos"
+        case publicGists = "public_gists"
+        case followers
+        case following
+        case created = "created_at"
+    }
 }
 

@@ -17,6 +17,7 @@ enum SFSymbols {
     static let heart = UIImage(systemName: "heart")!
     static let persons = UIImage(systemName: "person.2")!
     static let star = UIImage(systemName: "star.fill")!
+    static let person = UIImage(systemName: "person")
 }
 
 enum Images {
@@ -29,4 +30,10 @@ enum Images {
 enum Titles{
     
     static let emptyName = "The text field are empty.💁\n Please try enter name!✎"
+}
+
+enum NetworkError: String, Error { //Написать нормальные ошибки
+    
+    case badResponse = "Bad response."
+    case failure = "Failure!"
 }

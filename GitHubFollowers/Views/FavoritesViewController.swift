@@ -60,7 +60,9 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.cellID)!
+        
         cell.textLabel?.text = "Fett00"
+        cell.imageView?.image = UIImage(named: "rocket")
         
         return cell
     }

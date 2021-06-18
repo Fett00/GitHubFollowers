@@ -12,6 +12,9 @@
 		5A22A9D7265BF6AC003D0372 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A22A9D6265BF6AC003D0372 /* UIViewControllerExt.swift */; };
 		5A22A9DA265BFD52003D0372 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A22A9D9265BFD52003D0372 /* FavoritesViewController.swift */; };
 		5A22A9DC265FF005003D0372 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A22A9DB265FF005003D0372 /* FollowersViewController.swift */; };
+		5A58C9E0267BEB6E00D1D98B /* FollowerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A58C9DF267BEB6E00D1D98B /* FollowerModel.swift */; };
+		5A58C9E2267CBEAA00D1D98B /* ModelsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A58C9E1267CBEAA00D1D98B /* ModelsHelper.swift */; };
+		5A58C9E5267CC65A00D1D98B /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A58C9E4267CC65A00D1D98B /* DateExt.swift */; };
 		5A9B11F4265AC05A0024FB3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9B11F3265AC05A0024FB3B /* AppDelegate.swift */; };
 		5A9B11F6265AC05A0024FB3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9B11F5265AC05A0024FB3B /* SceneDelegate.swift */; };
 		5A9B11FE265AC05A0024FB3B /* GitHubFollowers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A9B11FC265AC05A0024FB3B /* GitHubFollowers.xcdatamodeld */; };
@@ -23,7 +26,6 @@
 		5AB6D97F2667EE5900BC8C20 /* FollowersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB6D97E2667EE5900BC8C20 /* FollowersCollectionViewCell.swift */; };
 		5AF6E76B266C032500246785 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6E76A266C032500246785 /* NetworkHelper.swift */; };
 		5AF6E76F266EAB5300246785 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6E76E266EAB5300246785 /* UserModel.swift */; };
-		5AF6E77226715F9700246785 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6E77126715F9700246785 /* JSONHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,9 @@
 		5A22A9D6265BF6AC003D0372 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		5A22A9D9265BFD52003D0372 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		5A22A9DB265FF005003D0372 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
+		5A58C9DF267BEB6E00D1D98B /* FollowerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerModel.swift; sourceTree = "<group>"; };
+		5A58C9E1267CBEAA00D1D98B /* ModelsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsHelper.swift; sourceTree = "<group>"; };
+		5A58C9E4267CC65A00D1D98B /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		5A9B11F0265AC05A0024FB3B /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A9B11F3265AC05A0024FB3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A9B11F5265AC05A0024FB3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +51,6 @@
 		5AB6D97E2667EE5900BC8C20 /* FollowersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCollectionViewCell.swift; sourceTree = "<group>"; };
 		5AF6E76A266C032500246785 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		5AF6E76E266EAB5300246785 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		5AF6E77126715F9700246785 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				5A22A9D6265BF6AC003D0372 /* UIViewControllerExt.swift */,
+				5A58C9E4267CC65A00D1D98B /* DateExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -84,9 +89,19 @@
 			children = (
 				5A9B120A265AC48F0024FB3B /* DataHelper.swift */,
 				5AF6E76A266C032500246785 /* NetworkHelper.swift */,
-				5AF6E77126715F9700246785 /* JSONHelper.swift */,
+				5A58C9E1267CBEAA00D1D98B /* ModelsHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5A58C9E3267CBEBD00D1D98B /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				5A9B11F3265AC05A0024FB3B /* AppDelegate.swift */,
+				5A9B11F5265AC05A0024FB3B /* SceneDelegate.swift */,
+				5A0BADBD265FF87E0082A870 /* Enums.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		5A9B11E7265AC05A0024FB3B = {
@@ -108,17 +123,15 @@
 		5A9B11F2265AC05A0024FB3B /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				5A9B11F3265AC05A0024FB3B /* AppDelegate.swift */,
-				5A9B11F5265AC05A0024FB3B /* SceneDelegate.swift */,
-				5A0BADBD265FF87E0082A870 /* Enums.swift */,
 				5AF6E770266EAC9200246785 /* Models */,
 				5A22A9D8265BFC0F003D0372 /* Helpers */,
 				5A22A9D5265BF683003D0372 /* Extensions */,
 				5AB6D97A2667A57700BC8C20 /* CustomViews */,
 				5A22A9D0265BE920003D0372 /* Views */,
-				5A9B11FF265AC05B0024FB3B /* Assets.xcassets */,
-				5A9B1201265AC05B0024FB3B /* LaunchScreen.storyboard */,
+				5A58C9E3267CBEBD00D1D98B /* Other */,
 				5A9B11FC265AC05A0024FB3B /* GitHubFollowers.xcdatamodeld */,
+				5A9B1201265AC05B0024FB3B /* LaunchScreen.storyboard */,
+				5A9B11FF265AC05B0024FB3B /* Assets.xcassets */,
 				5AB6D97D2667A86F00BC8C20 /* README.md */,
 				5A9B1204265AC05B0024FB3B /* Info.plist */,
 			);
@@ -138,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				5AF6E76E266EAB5300246785 /* UserModel.swift */,
+				5A58C9DF267BEB6E00D1D98B /* FollowerModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AF6E76B266C032500246785 /* NetworkHelper.swift in Sources */,
+				5A58C9E2267CBEAA00D1D98B /* ModelsHelper.swift in Sources */,
 				5AB6D97F2667EE5900BC8C20 /* FollowersCollectionViewCell.swift in Sources */,
 				5AB6D97C2667A5AB00BC8C20 /* FavoritesTableViewCell.swift in Sources */,
 				5A9B120B265AC48F0024FB3B /* DataHelper.swift in Sources */,
@@ -220,7 +235,8 @@
 				5AF6E76F266EAB5300246785 /* UserModel.swift in Sources */,
 				5A22A9D2265BEE29003D0372 /* UserInfoViewController.swift in Sources */,
 				5A22A9D7265BF6AC003D0372 /* UIViewControllerExt.swift in Sources */,
-				5AF6E77226715F9700246785 /* JSONHelper.swift in Sources */,
+				5A58C9E5267CC65A00D1D98B /* DateExt.swift in Sources */,
+				5A58C9E0267BEB6E00D1D98B /* FollowerModel.swift in Sources */,
 				5A9B11FE265AC05A0024FB3B /* GitHubFollowers.xcdatamodeld in Sources */,
 				5A22A9DC265FF005003D0372 /* FollowersViewController.swift in Sources */,
 				5A9B120D265AD46D0024FB3B /* SearchViewController.swift in Sources */,
@@ -294,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -349,7 +365,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -364,6 +380,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ALVSY66ULS;
 				INFOPLIST_FILE = GitHubFollowers/Info.plist;
@@ -373,6 +390,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sdk.GitHubFollowers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -383,6 +401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ALVSY66ULS;
 				INFOPLIST_FILE = GitHubFollowers/Info.plist;
@@ -392,6 +411,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sdk.GitHubFollowers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

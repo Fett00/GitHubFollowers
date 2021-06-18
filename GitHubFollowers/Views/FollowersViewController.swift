@@ -25,7 +25,20 @@ class FollowersViewController: UIViewController {
         super.viewDidLoad()
         
         //Подгрузка данных
-        NetworkHelper.shared.getUsers(withProfileName: "Fett00")//Здесь ли его место?
+        //Здесь ли его место?
+        NetworkHelper.shared.getUser(withProfileName: "Fett00"){ result in
+            
+            switch result{
+            
+            case .failure(let error):
+                debugPrint(error)
+                
+            case .success(let model):
+                print(model)
+            }
+            
+        }
+        
         //Настройка вью
         configurateViewController()
         //Настройка collectionView
@@ -36,14 +49,12 @@ class FollowersViewController: UIViewController {
         
         view.backgroundColor = .systemBackground //Установка цвета задника
         self.navigationController?.navigationBar.prefersLargeTitles = true // Большой заголовок
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: SFSymbols.person, style: .plain, target: self, action: #selector(getUserInfo))
         
         self.hideKeyboardWhenTappedAround() // Прятать клавиатуру при нажатии на экран
     }
     
     func configurateCollectionView() {
-        
-        
-        
         
         
         //Настройка отображения CollectionView
@@ -52,7 +63,7 @@ class FollowersViewController: UIViewController {
         let minimumItemSpacing: CGFloat = 10
         let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
         let itemWidth = availableWidth / 3
-        let nameHigth:CGFloat = 37
+        let nameHigth:CGFloat = 37 // font heigh + 20(space)
         
         let lo = UICollectionViewFlowLayout()
         lo.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
@@ -78,12 +89,18 @@ class FollowersViewController: UIViewController {
         ])
         followersCollectionView!.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    
+    @objc func getUserInfo(){
+        
+        present(UINavigationController(rootViewController: UserInfoViewController()), animated: true, completion: nil)
+    }
 }
 
 extension FollowersViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        50
+        10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -92,5 +109,10 @@ extension FollowersViewController: UICollectionViewDelegateFlowLayout, UICollect
         cell.set(avatarImage: nil, name: "Fett00")
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        present(UINavigationController(rootViewController: UserInfoViewController()), animated: true, completion: nil)
     }
 }
