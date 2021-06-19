@@ -62,7 +62,7 @@ extension SceneDelegate{
         let second = UINavigationController(rootViewController: FavoritesViewController())// TabBarController Children
         
         first.tabBarItem = UITabBarItem(title: "Search", image: SFSymbols.search, tag: 0)
-        second.tabBarItem = UITabBarItem(title: "Favorite", image: SFSymbols.star, tag: 1)
+        second.tabBarItem = UITabBarItem(title: "Favorite", image: SFSymbols.starFill, tag: 1)
         
         tab.viewControllers = [first,second] // Add children
         

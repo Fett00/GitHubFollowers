@@ -25,10 +25,10 @@ class FollowersCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(avatarImage:UIImage?,name:String){
+    func set(follower:FollowerModel){
         
-        avatarImageView.image = avatarImage ?? UIImage(named: "rocket")
-        nameLable.text = name
+        avatarImageView.image = UIImage(named: "rocket")
+        nameLable.text = follower.login
     }
     
     

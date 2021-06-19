@@ -11,6 +11,30 @@ struct FollowerModel: Codable {
     
     let login: String
     let id: Int
-    let avatar_url: String
+    let avatarUrl: String
     let url: String
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case login
+        case id
+        case avatarUrl = "avatar_url"
+        case url
+    }
+}
+
+struct FollowerModelK: Codable{
+    
+    let login:String
+    let avatarURL:String
+    let url:String
+    let receivedEventsUrl:String
+    
+    enum CodingKeys:String,CodingKey{
+        
+        case login
+        case avatarURL = "avatar_url"
+        case url
+        case receivedEventsUrl = "received_events_url"
+    }
 }

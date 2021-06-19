@@ -26,11 +26,21 @@ class UserInfoViewController: UIViewController {
         
         
         navigationItem.leftBarButtonItem = .init(title: "Done", style: .done, target: self, action: #selector(doneButton))
+        navigationItem.rightBarButtonItem = .init(image: SFSymbols.star, landscapeImagePhone: SFSymbols.star, style: .done, target: self, action: #selector(addToFavorite))
     }
     
     
     @objc func doneButton(){
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func addToFavorite(){
+        //Добавление пользователя в избранное
+        navigationItem.rightBarButtonItem = .init(image: SFSymbols.starFill, landscapeImagePhone: SFSymbols.starFill, style: .done, target: self, action: #selector(removeFromFavorite)) //Заполнение кнопки
+    }
+    
+    @objc func removeFromFavorite(){
+        navigationItem.rightBarButtonItem = .init(image: SFSymbols.star, landscapeImagePhone: SFSymbols.star, style: .done, target: self, action: #selector(addToFavorite))
     }
 }

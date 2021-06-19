@@ -14,7 +14,6 @@ class NetworkHelper{
         
         let cash = NSCache<NSString,NSData>()
         //Настройки кэша(добавить)
-        
         //
         return cash
     }()
@@ -58,20 +57,21 @@ class NetworkHelper{
                     return
                 }
                 
-                guard let data = data else{ //Проверка на наличие приходящих данных
-                    completionHandler(Result.failure(.failure))
-                    return
-                }
-                
                 do {
-                    result  = try JSONDecoder().decode(UserModel.self, from: data)
+                    result  = try JSONDecoder().decode(UserModel.self, from: data!)
+                    
+                    let followersModelURL = URL(string: result!.followersUrl)!
+                    
+                    strongSelf.getFollowers(fromURL: followersModelURL){ res in
+                        
+                        result?.followersModel = res
+                        completionHandler(Result.success(result!))
+                    }
                     
                     if strongSelf.userCash.object(forKey: name as NSString) == nil{ //Добавление пользователя в кэш если норм декодировалось
                         
-                        strongSelf.userCash.setObject(data as NSData, forKey: name as NSString)
+                        strongSelf.userCash.setObject(data! as NSData, forKey: name as NSString)
                     }
-                    
-                    completionHandler(Result.success(result!))
                 }
                 catch {
                     completionHandler(Result.failure(.failure))
@@ -80,7 +80,34 @@ class NetworkHelper{
         }
     }
     
-    func getImage(fromURL:URL){//Добавить кэширование
+    private func getFollowers(fromURL:URL, handler: @escaping ([FollowerModel]) -> () ){
+        
+        var result = [FollowerModel]()
+        
+        URLSession.shared.dataTask(with: fromURL) { data, response, error in
+            
+            if let _ = error { //Проверка на наличие ошибки
+                handler(result)
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { //Проверка на правильный код
+                handler(result)
+                return
+            }
+            
+            do {
+                result = try JSONDecoder().decode([FollowerModel].self, from: data!)
+
+                handler(result)
+            }
+            catch {
+                handler(result)
+            }
+            
+        }.resume()
+    }
+    
+    private func getImage(fromURL:URL){//Добавить кэширование //private???
         
     }
 }

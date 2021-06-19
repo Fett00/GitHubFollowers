@@ -11,10 +11,16 @@ import UIKit
 class FollowersViewController: UIViewController {
     
     var followersCollectionView:UICollectionView?
+    var currentUser: UserModel?
+    var currentUserName:String
     
-    init(withName name:String?) {
+    init(withName name:String) {
+        
+        currentUserName = name
+        
         super.init(nibName: nil, bundle: nil)
-        self.title = name ?? "User"
+        
+        self.title = currentUserName
     }
     
     required init?(coder: NSCoder) {
@@ -26,7 +32,9 @@ class FollowersViewController: UIViewController {
         
         //Подгрузка данных
         //Здесь ли его место?
-        NetworkHelper.shared.getUser(withProfileName: "Fett00"){ result in
+        NetworkHelper.shared.getUser(withProfileName: currentUserName){[weak self] result in
+            
+            guard let strongSelf = self else{return}
             
             switch result{
             
@@ -34,9 +42,14 @@ class FollowersViewController: UIViewController {
                 debugPrint(error)
                 
             case .success(let model):
-                print(model)
+                print(model.followersModel)
+                strongSelf.currentUser = model
+                
+                DispatchQueue.main.async {
+                    strongSelf.followersCollectionView?.reloadData()
+                }
+                print(Double(MemoryLayout.size(ofValue: model))/1024, " kB")
             }
-            
         }
         
         //Настройка вью
@@ -100,13 +113,15 @@ class FollowersViewController: UIViewController {
 extension FollowersViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        currentUser?.followersModel.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowersCollectionViewCell.cellID, for: indexPath) as! FollowersCollectionViewCell
-        cell.set(avatarImage: nil, name: "Fett00")
+        
+        let defaultFollower = FollowerModel(login: "sdq", id: 123, avatarUrl: "13123", url: "1312")
+        cell.set(follower:currentUser?.followersModel[indexPath.row] ?? defaultFollower)
         
         return cell
     }
