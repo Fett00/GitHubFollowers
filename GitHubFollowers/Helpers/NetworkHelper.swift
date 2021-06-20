@@ -20,7 +20,6 @@ class NetworkHelper{
     
     var users = [UserModel]()
     
-    var userURL:URL? // url
     let ghPath = "https://api.github.com/users/" // Путь до API
     
     static let shared = NetworkHelper() // singleton
@@ -42,9 +41,13 @@ class NetworkHelper{
         }
         else{//Если в кэше пользователя нет
             
-            userURL = URL(string: ghPath + name)
             
-            URLSession.shared.dataTask(with: userURL!) { [weak self] data, response, error in // userURL! Ставить нельзя!
+            guard let userURL = URL(string: ghPath + name) else{
+                completionHandler(Result.failure(.failure))
+                return
+            }
+            
+            URLSession.shared.dataTask(with: userURL) { [weak self] data, response, error in // userURL! Ставить нельзя!
                 
                 guard let strongSelf = self else {return}
                 
@@ -60,9 +63,7 @@ class NetworkHelper{
                 do {
                     result  = try JSONDecoder().decode(UserModel.self, from: data!)
                     
-                    let followersModelURL = URL(string: result!.followersUrl)!
-                    
-                    strongSelf.getFollowers(fromURL: followersModelURL){ res in
+                    strongSelf.getFollowers(fromUrlString: result!.followersUrl){ res in
                         
                         result?.followersModel = res
                         completionHandler(Result.success(result!))
@@ -80,11 +81,16 @@ class NetworkHelper{
         }
     }
     
-    private func getFollowers(fromURL:URL, handler: @escaping ([FollowerModel]) -> () ){
+    private func getFollowers(fromUrlString:String, handler: @escaping ([FollowerModel]) -> () ){
         
         var result = [FollowerModel]()
         
-        URLSession.shared.dataTask(with: fromURL) { data, response, error in
+        guard let followerURL = URL(string: fromUrlString) else{
+            handler([])
+            return
+        }
+        
+        URLSession.shared.dataTask(with: followerURL) { data, response, error in
             
             if let _ = error { //Проверка на наличие ошибки
                 handler(result)
@@ -107,8 +113,26 @@ class NetworkHelper{
         }.resume()
     }
     
-    private func getImage(fromURL:URL){//Добавить кэширование //private???
+    
+    func getImage(fromUrlString: String, completionHandler: @escaping (UIImage?) -> Void) {
         
+        guard let imageURL = URL(string: fromUrlString) else {
+            completionHandler(nil)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: imageURL) { data, response, error in
+
+            guard let wrapedData = data else{return}
+                
+            if let image = UIImage(data: wrapedData){
+                
+                completionHandler(image)
+            }
+            else{
+                completionHandler(nil)
+            }
+        }.resume()
     }
 }
 

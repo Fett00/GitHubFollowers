@@ -27,7 +27,16 @@ class FollowersCollectionViewCell: UICollectionViewCell {
     
     func set(follower:FollowerModel){
         
-        avatarImageView.image = UIImage(named: "rocket")
+        NetworkHelper.shared.getImage(fromUrlString: follower.avatarUrl) { [weak self] resultingImage in
+            
+            if let strongSelf = self{
+                
+                DispatchQueue.main.async {
+                    strongSelf.avatarImageView.image = resultingImage ?? Images.placeHolder
+                }
+            }
+        }
+
         nameLable.text = follower.login
     }
     

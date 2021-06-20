@@ -120,7 +120,8 @@ extension FollowersViewController: UICollectionViewDelegateFlowLayout, UICollect
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowersCollectionViewCell.cellID, for: indexPath) as! FollowersCollectionViewCell
         
-        let defaultFollower = FollowerModel(login: "sdq", id: 123, avatarUrl: "13123", url: "1312")
+        let defaultFollower = FollowerModel(login: "Empty", id: -1, avatarUrl: "123123", url: "123")
+        
         cell.set(follower:currentUser?.followersModel[indexPath.row] ?? defaultFollower)
         
         return cell
