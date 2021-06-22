@@ -71,7 +71,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.cellForRow(at: indexPath)
         
-        self.navigationController?.pushViewController(FollowersViewController(withName: cell!.textLabel!.text!), animated: true) //Поменять. Доставать данные не из ячейки а из БД. Убрать force-unwrap //wtf с cell!.!.! откуда столько !
+        self.navigationController?.pushViewController(FollowersViewController(withName: cell!.textLabel!.text!), animated: true) //Поменять. Доставать данные не из ячейки а из БД. Убрать force-unwrap //wtf с cell откуда столько знаков (!)
     }
     
     func configurateDeleteAction(){

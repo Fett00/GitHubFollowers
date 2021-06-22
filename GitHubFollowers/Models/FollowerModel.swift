@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct FollowerModel: Codable {
     
     let login: String
@@ -23,18 +24,3 @@ struct FollowerModel: Codable {
     }
 }
 
-struct FollowerModelK: Codable{
-    
-    let login:String
-    let avatarURL:String
-    let url:String
-    let receivedEventsUrl:String
-    
-    enum CodingKeys:String,CodingKey{
-        
-        case login
-        case avatarURL = "avatar_url"
-        case url
-        case receivedEventsUrl = "received_events_url"
-    }
-}

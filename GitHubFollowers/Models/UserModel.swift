@@ -5,14 +5,14 @@
 //  Created by Садык Мусаев on 07.06.2021.
 //
 
-import Foundation
-
+import UIKit
 
 struct UserModel: Codable {
 
     let login: String
     let id: Int
     let avatarUrl: String
+    var avatarImage:UIImage?
     let url: String
     let followersUrl: String
     var followersModel = [FollowerModel]()

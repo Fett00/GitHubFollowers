@@ -18,6 +18,14 @@ class NetworkHelper{
         return cash
     }()
     
+    let avatarCash:NSCache<NSString,UIImage> = {
+        
+        let cash = NSCache<NSString,UIImage>()
+        //Настройки кэша(добавить)
+        //
+        return cash
+    }()
+    
     var users = [UserModel]()
     
     let ghPath = "https://api.github.com/users/" // Путь до API
@@ -34,6 +42,18 @@ class NetworkHelper{
             
             do {
                 result  = try JSONDecoder().decode(UserModel.self, from: object as Data)
+                
+                getImage(fromUrlString: result!.avatarUrl) { avatarImage in
+                    
+                    result?.avatarImage = avatarImage
+                }
+                
+                
+                getFollowers(fromUrlString: result!.followersUrl){ res in
+                    
+                    result?.followersModel = res
+                }
+                
                 completionHandler(Result.success(result!))
             } catch {
                 completionHandler(Result.failure(.failure))
@@ -47,7 +67,7 @@ class NetworkHelper{
                 return
             }
             
-            URLSession.shared.dataTask(with: userURL) { [weak self] data, response, error in // userURL! Ставить нельзя!
+            URLSession.shared.dataTask(with: userURL) { [weak self] data, response, error in
                 
                 guard let strongSelf = self else {return}
                 
@@ -62,6 +82,12 @@ class NetworkHelper{
                 
                 do {
                     result  = try JSONDecoder().decode(UserModel.self, from: data!)
+                    
+                    
+                    strongSelf.getImage(fromUrlString: result!.avatarUrl) { avatarImage in
+                        
+                        result?.avatarImage = avatarImage
+                    }
                     
                     strongSelf.getFollowers(fromUrlString: result!.followersUrl){ res in
                         
@@ -103,7 +129,7 @@ class NetworkHelper{
             
             do {
                 result = try JSONDecoder().decode([FollowerModel].self, from: data!)
-
+                
                 handler(result)
             }
             catch {
@@ -121,18 +147,28 @@ class NetworkHelper{
             return
         }
         
-        URLSession.shared.dataTask(with: imageURL) { data, response, error in
-
-            guard let wrapedData = data else{return}
+        if let avatarImageFromCash = avatarCash.object(forKey: fromUrlString as NSString){
+            
+            completionHandler(avatarImageFromCash)
+        }
+        else{
+            
+            URLSession.shared.dataTask(with: imageURL) { [weak self] data, response, error in
                 
-            if let image = UIImage(data: wrapedData){
+                guard let strongSelf = self else{return}
                 
-                completionHandler(image)
-            }
-            else{
-                completionHandler(nil)
-            }
-        }.resume()
+                guard let wrapedData = data else{return}
+                
+                if let image = UIImage(data: wrapedData){
+                    
+                    strongSelf.avatarCash.setObject(image, forKey: fromUrlString as NSString)
+                    completionHandler(image)
+                }
+                else{
+                    completionHandler(nil)
+                }
+            }.resume()
+        }
     }
 }
 

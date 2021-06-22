@@ -10,6 +10,8 @@ import UIKit
 //Тут отображется список фоловеров
 class FollowersViewController: UIViewController {
     
+    var followersToUserStack = [UserModel]()
+    
     var followersCollectionView:UICollectionView?
     var currentUser: UserModel?
     var currentUserName:String
@@ -42,7 +44,7 @@ class FollowersViewController: UIViewController {
                 debugPrint(error)
                 
             case .success(let model):
-                print(model.followersModel)
+                
                 strongSelf.currentUser = model
                 
                 DispatchQueue.main.async {
@@ -75,12 +77,15 @@ class FollowersViewController: UIViewController {
         let padding: CGFloat = 10
         let minimumItemSpacing: CGFloat = 10
         let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
+        
         let itemWidth = availableWidth / 3
-        let nameHigth:CGFloat = 37 // font heigh + 20(space)
+        let imageToTextSapcing:CGFloat = 20
+        let nameHigth:CGFloat = UIFont.preferredFont(forTextStyle: .body).pointSize + imageToTextSapcing // font heigh + 20(space)
         
         let lo = UICollectionViewFlowLayout()
-        lo.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        lo.itemSize = CGSize(width: itemWidth, height: itemWidth + nameHigth)
+        lo.minimumInteritemSpacing = 1 //Минимальное растояние между ячейками в одной линии
+        lo.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)// Отсутпы от краев
+        lo.itemSize = CGSize(width: itemWidth, height: itemWidth + nameHigth) // Размеры элемента
         //
         
         followersCollectionView = UICollectionView(frame: .zero, collectionViewLayout: lo)
@@ -94,7 +99,7 @@ class FollowersViewController: UIViewController {
         followersCollectionView?.backgroundColor = .systemBackground
         
         NSLayoutConstraint.activate([
-
+            
             followersCollectionView!.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             followersCollectionView!.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             followersCollectionView!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -106,7 +111,7 @@ class FollowersViewController: UIViewController {
     
     @objc func getUserInfo(){
         
-        present(UINavigationController(rootViewController: UserInfoViewController()), animated: true, completion: nil)
+        present(UINavigationController(rootViewController: UserInfoViewController(user: currentUser!)), animated: true, completion: nil)//Убрать (!)
     }
 }
 
@@ -129,6 +134,22 @@ extension FollowersViewController: UICollectionViewDelegateFlowLayout, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        present(UINavigationController(rootViewController: UserInfoViewController()), animated: true, completion: nil)
+        // TODO: Каждый раз запрашивает юзера. Слишком долго. Кэшировать
+        
+        NetworkHelper.shared.getUser(withProfileName: currentUser!.followersModel[indexPath.row].login) { [weak self] result in
+            
+            guard let strongSelf = self else {return}
+            
+            switch result{
+            
+            case .success(let success):
+                DispatchQueue.main.async {
+                    strongSelf.present(UINavigationController(rootViewController: UserInfoViewController(user: success)), animated: true, completion: nil)
+                }
+                
+            case .failure(let failure):
+                debugPrint(failure)
+            }
+        }
     }
 }
