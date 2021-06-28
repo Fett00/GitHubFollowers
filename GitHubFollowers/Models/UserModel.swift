@@ -14,6 +14,7 @@ struct UserModel: Codable {
     let avatarUrl: String
     var avatarImage:UIImage?
     let url: String
+    let pageURL:String
     let followersUrl: String
     var followersModel = [FollowerModel]()
     let followingUrl: String
@@ -32,6 +33,7 @@ struct UserModel: Codable {
         case id
         case avatarUrl = "avatar_url"
         case url
+        case pageURL = "html_url"
         case followersUrl = "followers_url"
         case followingUrl = "following_url"
         case name

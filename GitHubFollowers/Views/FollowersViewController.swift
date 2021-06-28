@@ -32,6 +32,15 @@ class FollowersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Настройка вью
+        configurateViewController()
+        //Настройка collectionView
+        configurateCollectionView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
         //Подгрузка данных
         //Здесь ли его место?
         NetworkHelper.shared.getUser(withProfileName: currentUserName){[weak self] result in
@@ -53,11 +62,7 @@ class FollowersViewController: UIViewController {
                 print(Double(MemoryLayout.size(ofValue: model))/1024, " kB")
             }
         }
-        
-        //Настройка вью
-        configurateViewController()
-        //Настройка collectionView
-        configurateCollectionView()
+
     }
     
     func configurateViewController(){

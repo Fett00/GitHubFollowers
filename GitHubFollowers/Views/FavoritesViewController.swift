@@ -42,6 +42,9 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
         favoritesUsersTableView.dataSource = self // назначение источника данных
         
         favoritesUsersTableView.tableFooterView = UIView() // Установка футера
+//        favoritesUsersTableView.insetsContentViewsToSafeArea = true //Что дает?
+//        favoritesUsersTableView.cellLayoutMarginsFollowReadableWidth = true //Что дает?
+        favoritesUsersTableView.separatorStyle = .none
         
         //Настройка констрейнтов для таблицы
         NSLayoutConstraint.activate([

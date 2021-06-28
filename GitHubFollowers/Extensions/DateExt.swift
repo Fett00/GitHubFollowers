@@ -8,8 +8,19 @@
 import Foundation
 
 extension Date{
-    
-    static func GHStringToDate(){
+
+    static func gHStringToDateString(ghString:String) -> String{
         
+        let isoDateFormatter = ISO8601DateFormatter()
+        let isoDate = isoDateFormatter.date(from: ghString)
+        let options:ISO8601DateFormatter.Options = [.withYear, .withMonth, .withDay]
+        
+        if let wrapedDate = isoDate{
+            
+            return ISO8601DateFormatter.string(from: wrapedDate, timeZone: .current, formatOptions: options)
+        }
+        else{
+            return ""
+        }
     }
 }
