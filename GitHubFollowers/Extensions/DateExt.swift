@@ -13,7 +13,7 @@ extension Date{
         
         let isoDateFormatter = ISO8601DateFormatter()
         let isoDate = isoDateFormatter.date(from: ghString)
-        let options:ISO8601DateFormatter.Options = [.withYear, .withMonth, .withDay]
+        let options:ISO8601DateFormatter.Options = [.withYear, .withMonth, .withDay, .withDashSeparatorInDate]
         
         if let wrapedDate = isoDate{
             
