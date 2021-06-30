@@ -15,6 +15,9 @@
 		5A58C9E0267BEB6E00D1D98B /* FollowerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A58C9DF267BEB6E00D1D98B /* FollowerModel.swift */; };
 		5A58C9E2267CBEAA00D1D98B /* ModelsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A58C9E1267CBEAA00D1D98B /* ModelsHelper.swift */; };
 		5A58C9E5267CC65A00D1D98B /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A58C9E4267CC65A00D1D98B /* DateExt.swift */; };
+		5A85DDA7268C80CB0091CCB7 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85DDA6268C80CB0091CCB7 /* CustomUIButton.swift */; };
+		5A85DDA9268C8B1B0091CCB7 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85DDA8268C8B1B0091CCB7 /* CustomUIView.swift */; };
+		5A85DDAB268C90720091CCB7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85DDAA268C90720091CCB7 /* CustomTextField.swift */; };
 		5A9B11F4265AC05A0024FB3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9B11F3265AC05A0024FB3B /* AppDelegate.swift */; };
 		5A9B11F6265AC05A0024FB3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9B11F5265AC05A0024FB3B /* SceneDelegate.swift */; };
 		5A9B11FE265AC05A0024FB3B /* GitHubFollowers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A9B11FC265AC05A0024FB3B /* GitHubFollowers.xcdatamodeld */; };
@@ -48,6 +51,9 @@
 		5A58C9DF267BEB6E00D1D98B /* FollowerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerModel.swift; sourceTree = "<group>"; };
 		5A58C9E1267CBEAA00D1D98B /* ModelsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsHelper.swift; sourceTree = "<group>"; };
 		5A58C9E4267CC65A00D1D98B /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
+		5A85DDA6268C80CB0091CCB7 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
+		5A85DDA8268C8B1B0091CCB7 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
+		5A85DDAA268C90720091CCB7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		5A9B11F0265AC05A0024FB3B /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A9B11F3265AC05A0024FB3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A9B11F5265AC05A0024FB3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +172,9 @@
 			children = (
 				5AB6D97E2667EE5900BC8C20 /* FollowersCollectionViewCell.swift */,
 				5AB6D97B2667A5AB00BC8C20 /* FavoritesTableViewCell.swift */,
+				5A85DDA6268C80CB0091CCB7 /* CustomUIButton.swift */,
+				5A85DDA8268C8B1B0091CCB7 /* CustomUIView.swift */,
+				5A85DDAA268C90720091CCB7 /* CustomTextField.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -291,12 +300,15 @@
 				5A58C9E2267CBEAA00D1D98B /* ModelsHelper.swift in Sources */,
 				5AB6D97F2667EE5900BC8C20 /* FollowersCollectionViewCell.swift in Sources */,
 				5AB6D97C2667A5AB00BC8C20 /* FavoritesTableViewCell.swift in Sources */,
+				5A85DDAB268C90720091CCB7 /* CustomTextField.swift in Sources */,
 				5A9B120B265AC48F0024FB3B /* DataHelper.swift in Sources */,
 				5A22A9DA265BFD52003D0372 /* FavoritesViewController.swift in Sources */,
 				5A0BADBE265FF87E0082A870 /* Enums.swift in Sources */,
+				5A85DDA7268C80CB0091CCB7 /* CustomUIButton.swift in Sources */,
 				5AF6E76F266EAB5300246785 /* UserModel.swift in Sources */,
 				5A22A9D2265BEE29003D0372 /* UserInfoViewController.swift in Sources */,
 				5A22A9D7265BF6AC003D0372 /* UIViewControllerExt.swift in Sources */,
+				5A85DDA9268C8B1B0091CCB7 /* CustomUIView.swift in Sources */,
 				5A58C9E5267CC65A00D1D98B /* DateExt.swift in Sources */,
 				5A58C9E0267BEB6E00D1D98B /* FollowerModel.swift in Sources */,
 				5A9B11FE265AC05A0024FB3B /* GitHubFollowers.xcdatamodeld in Sources */,

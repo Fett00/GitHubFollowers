@@ -140,7 +140,6 @@ extension FollowersViewController: UICollectionViewDelegateFlowLayout, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         // TODO: Каждый раз запрашивает юзера. Слишком долго. Кэшировать
-        
         NetworkHelper.shared.getUser(withProfileName: currentUser!.followersModel[indexPath.row].login) { [weak self] result in
             
             guard let strongSelf = self else {return}

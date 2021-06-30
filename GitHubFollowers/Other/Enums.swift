@@ -8,6 +8,12 @@
 import Foundation
 import UIKit
 
+enum Colors{
+    
+    static let blueButton = UIColor(named: "buttonColors1")!
+    static let purpuleButton = UIColor(named: "buttonColors2")!
+    static let viewBackground = UIColor(named: "viewColor")!
+}
 enum SFSymbols {
     
     static let location = UIImage(systemName: "mappin.and.ellipse")!

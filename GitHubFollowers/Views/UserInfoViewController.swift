@@ -14,8 +14,8 @@ class UserInfoViewController: UIViewController {
     let user:UserModel
     
     let firstBlock = UIView() //Первый блок с аватаркой, ником, локацией и био
-    let secondBlock = UIView() // Блок связанный с репозиториями и гистами
-    let thirdBlock = UIView() // Блок связанный с фоловерами и тд
+    let secondBlock = GHView(bgColor: Colors.viewBackground) // Блок связанный с репозиториями и гистами
+    let thirdBlock = GHView(bgColor: Colors.viewBackground) // Блок связанный с фоловерами и тд
     let dateLable = UILabel() // Дата создания акка
 
     
@@ -210,7 +210,6 @@ class UserInfoViewController: UIViewController {
         //Настройка второго блока
         
         view.addSubview(secondBlock)
-        secondBlock.backgroundColor = .systemGray6 //УБРАТЬ
         
         NSLayoutConstraint.activate([
         
@@ -313,12 +312,10 @@ class UserInfoViewController: UIViewController {
         
         //Переход в профиль ГХ
         
-        let toProfielButton = UIButton()
+        let toProfielButton = GHButton(bgColor: Colors.blueButton, title: "Profile")
         
         secondBlock.addSubview(toProfielButton)
         
-        toProfielButton.setTitle("Safari", for: .normal)
-        toProfielButton.backgroundColor = .cyan
         toProfielButton.addTarget(self, action: #selector(goToProfileFromSafari), for: .touchDown)
         
         NSLayoutConstraint.activate([
@@ -347,7 +344,6 @@ class UserInfoViewController: UIViewController {
         //Настройка третьего блока
         
         view.addSubview(thirdBlock)
-        thirdBlock.backgroundColor = .systemGray6 //УБРАТЬ
         
         NSLayoutConstraint.activate([
         
@@ -450,12 +446,9 @@ class UserInfoViewController: UIViewController {
         
         //Переход к фоловерам пользователя
         
-        let getFollowersButton = UIButton()
-        
+        let getFollowersButton = GHButton(bgColor: Colors.purpuleButton, title: "Get Followers")
+            
         thirdBlock.addSubview(getFollowersButton)
-        
-        getFollowersButton.setTitle("Tap me!", for: .normal)
-        getFollowersButton.backgroundColor = .cyan
         
         NSLayoutConstraint.activate([
         

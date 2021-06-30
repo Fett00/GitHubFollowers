@@ -14,10 +14,10 @@ class SearchViewController: UIViewController {
     let logoImageView = UIImageView()
     
     //Форма для ввода имени
-    let userNameTextField = UITextField()
+    let userNameTextField = GHTextField()
     
     //Кнопка поиска
-    let searchButton = UIButton()
+    let searchButton = GHButton(bgColor: Colors.blueButton, title: "Get Followers")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,19 +62,7 @@ class SearchViewController: UIViewController {
 
         view.addSubview(userNameTextField)//Добавление поля ввода на вью
         
-        //Установка и настройка краев
-        userNameTextField.layer.borderWidth = 0.6
-        userNameTextField.layer.borderColor = UIColor.systemGray2.cgColor
-        userNameTextField.layer.cornerCurve = CALayerCornerCurve.continuous
-        userNameTextField.layer.cornerRadius = 4
-        //
-        
-        //Настройка шрифтов
-        userNameTextField.font = UIFont.preferredFont(forTextStyle: .title2)
-        //
-        
-        userNameTextField.placeholder = "Enter a username" // Установка плейсхолдера
-        userNameTextField.backgroundColor = .secondarySystemBackground
+        userNameTextField.delegate = self
         
         //Создание констрейнтов
         NSLayoutConstraint.activate([
@@ -92,8 +80,6 @@ class SearchViewController: UIViewController {
     func configurateButton() {
         view.addSubview(searchButton)//Добавление кнопки поиска на вью
         
-        searchButton.setTitle("Tap me!", for: .normal)//Установка текста на кнопку
-        searchButton.backgroundColor = .cyan //UIColor.init(named: "buttonColors1")
         searchButton.addTarget(self, action: #selector(goToFollowers), for: .touchDown)
         
         //Создание констрейнтов
@@ -122,5 +108,24 @@ class SearchViewController: UIViewController {
             popUp.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(popUp, animated: true, completion: nil)
         }
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if !userNameTextField.text!.isEmpty{ //Поверка на наличие имени
+            
+            self.navigationController?.pushViewController(FollowersViewController(withName: textField.text!), animated: true)
+        }
+        else{ //Уведомление если имя пустое
+            
+            let popUp = UIAlertController(title: nil, message: Titles.emptyName, preferredStyle: .alert)
+            popUp.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(popUp, animated: true, completion: nil)
+        }
+        
+        return true
     }
 }

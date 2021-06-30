@@ -64,9 +64,8 @@ extension SceneDelegate{
         first.tabBarItem = UITabBarItem(title: "Search", image: SFSymbols.search, tag: 0)
         second.tabBarItem = UITabBarItem(title: "Favorite", image: SFSymbols.starFill, tag: 1)
         
+        tab.tabBar.tintColor = Colors.blueButton
         tab.viewControllers = [first,second] // Add children
-        
-        //tab.tabBar.tintColor = .systemYellow //TODO: Когданибудь поменять это
         
         return tab
     }
