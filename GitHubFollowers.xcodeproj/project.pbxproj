@@ -135,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				5A9B11F2265AC05A0024FB3B /* GitHubFollowers */,
+				5AB6D97D2667A86F00BC8C20 /* README.md */,
 				5AE7958826809E1F00294A72 /* GitHubFollowersTests */,
 				5A9B11F1265AC05A0024FB3B /* Products */,
 			);
@@ -161,7 +162,6 @@
 				5A9B11FC265AC05A0024FB3B /* GitHubFollowers.xcdatamodeld */,
 				5A9B1201265AC05B0024FB3B /* LaunchScreen.storyboard */,
 				5A9B11FF265AC05B0024FB3B /* Assets.xcassets */,
-				5AB6D97D2667A86F00BC8C20 /* README.md */,
 				5A9B1204265AC05B0024FB3B /* Info.plist */,
 			);
 			path = GitHubFollowers;
