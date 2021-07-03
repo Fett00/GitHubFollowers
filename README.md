@@ -2,7 +2,7 @@
 
 **Приложение позволяет получить информацию о всех фолловерах юзера.**
 
-![SearchView](Screenshots/Pic1.png | width=100)
+![SearchView](Screenshots/Pic1.png)
 ![FollowersView](Screenshots/Pic2.png)
 ![UserView](Screenshots/Pic3.png)
 
