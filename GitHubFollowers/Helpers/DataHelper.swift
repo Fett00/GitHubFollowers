@@ -8,16 +8,14 @@
 import UIKit
 import CoreData
 
-class CoreDataHelper{
+class UsersCDHelper{
     
     //Создание контекста для работы с CoreData
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    //Куда записывать(Entity)
-    let managedObject:NSManagedObject
     
-    init(withManagedObject:NSManagedObject) {
-        managedObject = withManagedObject
-    }
+    //singleton
+    static let shared = UsersCDHelper()
+    private init() {}
     
     //Сохранение Данных в БД
     private func save(){
@@ -28,8 +26,9 @@ class CoreDataHelper{
     }
     
     //Добавление записи в CoreData
-    func add(object:NSManagedObject) {
+    func add() {
         
+        save()
     }
     
     //Удаление записи из CoreData
@@ -43,19 +42,17 @@ class CoreDataHelper{
     }
     
     
-    //TODO: Добавить запрос к БД с условиями
+    //TODO: Добавить запрос к БД с условиями(для поиска)
     //Получение записей из CoreData
-    func get(object:NSManagedObject) -> [NSManagedObject] {
-        
-        var result:[NSManagedObject] = [NSManagedObject()]
-        
-        return result
+    func get() -> [Users] {
+
+        do {
+            let tempData:[Users] = try context.fetch(Users.fetchRequest())
+            return tempData
+        }
+        catch {
+            return []
+        }
     }
 }
 
-class CurrentUserHelper{
-    
-    static func getCurrentUser(){
-        
-    }
-}

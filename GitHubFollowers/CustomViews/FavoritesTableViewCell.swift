@@ -26,9 +26,10 @@ class FavoritesTableViewCell: UITableViewCell {
         self.accessoryType = .disclosureIndicator
     }
     
-    func set(){ //УСтановка значений
+    func set(user:Users){ //УСтановка значений
         
-        
+        self.textLabel?.text = user.name
+        self.imageView?.image = UIImage(data: user.image!)
     }
 
 }

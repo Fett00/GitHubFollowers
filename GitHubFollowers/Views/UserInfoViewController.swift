@@ -17,7 +17,7 @@ class UserInfoViewController: UIViewController {
     let secondBlock = GHView(bgColor: Colors.viewBackground) // Блок связанный с репозиториями и гистами
     let thirdBlock = GHView(bgColor: Colors.viewBackground) // Блок связанный с фоловерами и тд
     let dateLable = UILabel() // Дата создания акка
-
+    
     
     init(user:UserModel) {
         self.user = user
@@ -71,7 +71,7 @@ class UserInfoViewController: UIViewController {
         view.addSubview(firstBlock)
         
         NSLayoutConstraint.activate([
-        
+            
             firstBlock.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             firstBlock.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 10),
             firstBlock.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
@@ -167,13 +167,13 @@ class UserInfoViewController: UIViewController {
         //TODO: - Починить кривую картинку mapPin
         
         NSLayoutConstraint.activate([
-        
+            
             geoSymbol.leadingAnchor.constraint(equalTo: geoSymbol.superview!.leadingAnchor),
             geoSymbol.centerYAnchor.constraint(equalTo: geoSymbol.superview!.centerYAnchor,constant: -3),
             //geoSymbol.bottomAnchor.constraint(equalTo: geoSymbol.superview!.bottomAnchor),
             geoSymbol.heightAnchor.constraint(equalToConstant: geoName.font.pointSize),
             geoSymbol.widthAnchor.constraint(equalTo: geoSymbol.heightAnchor),
-
+            
             geoName.leadingAnchor.constraint(equalTo: geoSymbol.trailingAnchor, constant: 5),
             geoName.topAnchor.constraint(equalTo: geoName.superview!.topAnchor),
             geoName.bottomAnchor.constraint(equalTo: geoName.superview!.bottomAnchor),
@@ -212,7 +212,7 @@ class UserInfoViewController: UIViewController {
         view.addSubview(secondBlock)
         
         NSLayoutConstraint.activate([
-        
+            
             secondBlock.topAnchor.constraint(equalTo: firstBlock.bottomAnchor, constant: 40),
             secondBlock.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 20),
             secondBlock.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
@@ -228,7 +228,7 @@ class UserInfoViewController: UIViewController {
         let repoImage = UIImageView()
         let repoLabel = UILabel()
         let repoCount = UILabel()
-                    
+        
         secondBlock.addSubview(repoBlock)
         repoBlock.addSubview(repoImage)
         repoBlock.addSubview(repoLabel)
@@ -259,7 +259,7 @@ class UserInfoViewController: UIViewController {
             repoCount.topAnchor.constraint(equalTo: repoLabel.bottomAnchor, constant: 10),
             repoCount.centerXAnchor.constraint(equalTo: repoLabel.centerXAnchor)
         ])
-
+        
         repoBlock.translatesAutoresizingMaskIntoConstraints = false
         repoImage.translatesAutoresizingMaskIntoConstraints = false
         repoLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -272,7 +272,7 @@ class UserInfoViewController: UIViewController {
         let gistImage = UIImageView()
         let gistLabel = UILabel()
         let gistCount = UILabel()
-            
+        
         secondBlock.addSubview(gistBlock)
         gistBlock.addSubview(gistImage)
         gistBlock.addSubview(gistLabel)
@@ -319,7 +319,7 @@ class UserInfoViewController: UIViewController {
         toProfielButton.addTarget(self, action: #selector(goToProfileFromSafari), for: .touchDown)
         
         NSLayoutConstraint.activate([
-        
+            
             toProfielButton.topAnchor.constraint(equalTo: repoCount.bottomAnchor, constant: 20),
             toProfielButton.leadingAnchor.constraint(equalTo: toProfielButton.superview!.leadingAnchor, constant: 10),
             toProfielButton.trailingAnchor.constraint(equalTo: toProfielButton.superview!.trailingAnchor, constant: -10),
@@ -330,7 +330,7 @@ class UserInfoViewController: UIViewController {
         toProfielButton.translatesAutoresizingMaskIntoConstraints = false
         //
         
-
+        
     }
     
     func configurateThirdBlock(){
@@ -346,7 +346,7 @@ class UserInfoViewController: UIViewController {
         view.addSubview(thirdBlock)
         
         NSLayoutConstraint.activate([
-        
+            
             thirdBlock.topAnchor.constraint(equalTo: secondBlock.bottomAnchor, constant: 40),
             thirdBlock.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 20),
             thirdBlock.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
@@ -362,7 +362,7 @@ class UserInfoViewController: UIViewController {
         let followerImage = UIImageView()
         let followerLabel = UILabel()
         let followerCount = UILabel()
-                    
+        
         thirdBlock.addSubview(followerBlock)
         followerBlock.addSubview(followerImage)
         followerBlock.addSubview(followerLabel)
@@ -393,7 +393,7 @@ class UserInfoViewController: UIViewController {
             followerCount.topAnchor.constraint(equalTo: followerLabel.bottomAnchor, constant: 10),
             followerCount.centerXAnchor.constraint(equalTo: followerLabel.centerXAnchor)
         ])
-
+        
         followerBlock.translatesAutoresizingMaskIntoConstraints = false
         followerImage.translatesAutoresizingMaskIntoConstraints = false
         followerLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -406,7 +406,7 @@ class UserInfoViewController: UIViewController {
         let followingImage = UIImageView()
         let followingLabel = UILabel()
         let followingCount = UILabel()
-            
+        
         thirdBlock.addSubview(followingBlock)
         followingBlock.addSubview(followingImage)
         followingBlock.addSubview(followingLabel)
@@ -447,11 +447,11 @@ class UserInfoViewController: UIViewController {
         //Переход к фоловерам пользователя
         
         let getFollowersButton = GHButton(bgColor: Colors.purpuleButton, title: "Get Followers")
-            
+        
         thirdBlock.addSubview(getFollowersButton)
         
         NSLayoutConstraint.activate([
-        
+            
             getFollowersButton.topAnchor.constraint(equalTo: followerCount.bottomAnchor, constant: 20),
             getFollowersButton.leadingAnchor.constraint(equalTo: getFollowersButton.superview!.leadingAnchor, constant: 10),
             getFollowersButton.trailingAnchor.constraint(equalTo: getFollowersButton.superview!.trailingAnchor, constant: -10),
@@ -472,7 +472,7 @@ class UserInfoViewController: UIViewController {
         dateLable.textAlignment = .center
         
         NSLayoutConstraint.activate([
-        
+            
             dateLable.bottomAnchor.constraint(equalTo: dateLable.superview!.safeAreaLayoutGuide.bottomAnchor,constant: -10),
             dateLable.leadingAnchor.constraint(equalTo: dateLable.superview!.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             dateLable.trailingAnchor.constraint(equalTo: dateLable.superview!.safeAreaLayoutGuide.trailingAnchor, constant: -10)
@@ -483,6 +483,7 @@ class UserInfoViewController: UIViewController {
     
     @objc func getFollowers(){
         
+
     }
     
     @objc func goToProfileFromSafari(){
@@ -492,13 +493,23 @@ class UserInfoViewController: UIViewController {
         
         present(safariPage, animated: true, completion: nil)
     }
-
+    
     @objc func doneButton(){
         
         dismiss(animated: true, completion: nil)
     }
     
     @objc func addToFavorite(){
+        
+        let dBSaver = UsersCDHelper.shared
+        let userToSave = Users(context: dBSaver.context)
+        
+        userToSave.name = user.login
+        userToSave.link = user.url
+        userToSave.image = user.avatarImage?.jpegData(compressionQuality: 1.0)
+        
+        dBSaver.add()
+        
         //Добавление пользователя в избранное
         navigationItem.rightBarButtonItem = .init(image: SFSymbols.starFill, landscapeImagePhone: SFSymbols.starFill, style: .done, target: self, action: #selector(removeFromFavorite)) //Заполнение кнопки
     }

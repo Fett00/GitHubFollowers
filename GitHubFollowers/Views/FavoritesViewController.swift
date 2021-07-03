@@ -10,6 +10,8 @@ import UIKit
 class FavoritesViewController: UIViewController {
     
     let favoritesUsersTableView = UITableView()
+    
+    var users = [Users]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,16 @@ class FavoritesViewController: UIViewController {
         configurateViewController()
         //Настройка Таблицы
         configurateFUTableView()
+        //Получение пользователей
+        getUsers()
+    }
+    
+    
+    func getUsers(){
+        
+        let dBGetter = UsersCDHelper.shared
+        
+        users = dBGetter.get()
     }
     
 
@@ -28,7 +40,6 @@ class FavoritesViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround() // Прятать клавиатуру при нажатии на экран
     }
-    
 }
 
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
@@ -58,23 +69,20 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        20
+        users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.cellID)!
+        let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.cellID) as! FavoritesTableViewCell
         
-        cell.textLabel?.text = "Fett00"
-        cell.imageView?.image = UIImage(named: "rocket")
+        cell.set(user: users[indexPath.row])
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRow(at: indexPath)
-        
-        self.navigationController?.pushViewController(FollowersViewController(withName: cell!.textLabel!.text!), animated: true) //Поменять. Доставать данные не из ячейки а из БД. Убрать force-unwrap //wtf с cell откуда столько знаков (!)
+        self.navigationController?.pushViewController(FollowersViewController(withName: users[indexPath.row].name!), animated: true)
     }
     
     func configurateDeleteAction(){

@@ -13,7 +13,6 @@
 		5A22A9DA265BFD52003D0372 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A22A9D9265BFD52003D0372 /* FavoritesViewController.swift */; };
 		5A22A9DC265FF005003D0372 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A22A9DB265FF005003D0372 /* FollowersViewController.swift */; };
 		5A58C9E0267BEB6E00D1D98B /* FollowerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A58C9DF267BEB6E00D1D98B /* FollowerModel.swift */; };
-		5A58C9E2267CBEAA00D1D98B /* ModelsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A58C9E1267CBEAA00D1D98B /* ModelsHelper.swift */; };
 		5A58C9E5267CC65A00D1D98B /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A58C9E4267CC65A00D1D98B /* DateExt.swift */; };
 		5A85DDA7268C80CB0091CCB7 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85DDA6268C80CB0091CCB7 /* CustomUIButton.swift */; };
 		5A85DDA9268C8B1B0091CCB7 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85DDA8268C8B1B0091CCB7 /* CustomUIView.swift */; };
@@ -52,7 +51,6 @@
 		5A22A9D9265BFD52003D0372 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		5A22A9DB265FF005003D0372 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		5A58C9DF267BEB6E00D1D98B /* FollowerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerModel.swift; sourceTree = "<group>"; };
-		5A58C9E1267CBEAA00D1D98B /* ModelsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsHelper.swift; sourceTree = "<group>"; };
 		5A58C9E4267CC65A00D1D98B /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		5A85DDA6268C80CB0091CCB7 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
 		5A85DDA8268C8B1B0091CCB7 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 			children = (
 				5A9B120A265AC48F0024FB3B /* DataHelper.swift */,
 				5AF6E76A266C032500246785 /* NetworkHelper.swift */,
-				5A58C9E1267CBEAA00D1D98B /* ModelsHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -317,7 +314,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AF6E76B266C032500246785 /* NetworkHelper.swift in Sources */,
-				5A58C9E2267CBEAA00D1D98B /* ModelsHelper.swift in Sources */,
 				5AB6D97F2667EE5900BC8C20 /* FollowersCollectionViewCell.swift in Sources */,
 				5AB6D97C2667A5AB00BC8C20 /* FavoritesTableViewCell.swift in Sources */,
 				5A85DDAB268C90720091CCB7 /* CustomTextField.swift in Sources */,

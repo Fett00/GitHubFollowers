@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Followers" representedClassName="Followers" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    <entity name="Users" representedClassName="Users" syncable="YES" codeGenerationType="class">
         <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="link" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="profileLink" optional="YES" attributeType="URI"/>
     </entity>
     <elements>
-        <element name="Followers" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Users" positionX="-63" positionY="-18" width="128" height="74"/>
     </elements>
 </model>
