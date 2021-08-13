@@ -43,9 +43,7 @@ class FollowersViewController: UIViewController {
         
         //Подгрузка данных
         //Здесь ли его место?
-        NetworkHelper.shared.getUser(withProfileName: currentUserName){[weak self] result in
-            
-            guard let strongSelf = self else{return}
+        NetworkHelper.shared.getUser(withProfileName: currentUserName){[unowned self] result in
             
             switch result{
             
@@ -54,15 +52,14 @@ class FollowersViewController: UIViewController {
                 
             case .success(let model):
                 
-                strongSelf.currentUser = model
+                currentUser = model
                 
                 DispatchQueue.main.async {
-                    strongSelf.followersCollectionView?.reloadData()
+                    followersCollectionView?.reloadData()
                 }
-                print(Double(MemoryLayout.size(ofValue: model))/1024, " kB")
+                print(Double(MemoryLayout.size(ofValue: model))/1024, " kB") //Размер модели
             }
         }
-
     }
     
     func configurateViewController(){
@@ -75,7 +72,6 @@ class FollowersViewController: UIViewController {
     }
     
     func configurateCollectionView() {
-        
         
         //Настройка отображения CollectionView
         let width =  view.bounds.width // Ширина экрана

@@ -44,7 +44,7 @@ class UsersCDHelper{
     
     //TODO: Добавить запрос к БД с условиями(для поиска)
     //Получение записей из CoreData
-    func get() -> [Users] {
+    func get(withName:String?) -> [Users] {
 
         do {
             let tempData:[Users] = try context.fetch(Users.fetchRequest())

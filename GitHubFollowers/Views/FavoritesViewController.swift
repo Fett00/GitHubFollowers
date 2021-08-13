@@ -29,7 +29,7 @@ class FavoritesViewController: UIViewController {
         
         let dBGetter = UsersCDHelper.shared
         
-        users = dBGetter.get()
+        users = dBGetter.get(withName: nil)
     }
     
 
